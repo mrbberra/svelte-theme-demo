@@ -1,0 +1,22 @@
+:root.duplo {
+  font-size: 32px !important;
+  .btn-close {
+    @include quarter-circle("bottom", "left");
+    background-color: $es-grey-40;
+  }
+}
+
+:root.lego {
+  font-size: 24px !important;
+  .btn-close {
+    @include quarter-circle("bottom", "left");
+    background-color: $es-grey-40;
+  }
+}
+
+:root.adult {
+  font-size: 24px !important;
+  .btn {
+    --bs-btn-border-radius: var(--bs-border-radius-pill);
+  }
+}

@@ -1,0 +1,58 @@
+$es-blue: #0d68c2;
+$es-purple: #914eb8;
+$es-red: #e14747;
+$es-orange: #f36700;
+$es-yellow: #f2b30b;
+$es-green: #68ae00;
+$es-teal: #14a1ae;
+$es-grey-40: #999999;
+
+$es-colors: (
+  "es-blue": $es-blue,
+  "es-purple": $es-purple,
+  "es-red": $es-red,
+  "es-orange": $es-orange,
+  "es-yellow": $es-yellow,
+  "es-green": $es-green,
+  "es-teal": $es-teal,
+  "es-gray-40": $es-grey-40,
+  "white": #fff,
+);
+
+@each $name, $value in $es-colors {
+  .bg-#{$name} {
+    --bs-bg-opacity: 1;
+    background-color: rgba($value, var(--bs-bg-opacity)) !important;
+  }
+
+  .#{$name} {
+    color: $value;
+  }
+}
+
+$primary: $es-blue;
+
+@import url("https://use.typekit.net/mkw4ydd.css");
+$font-family-sans-serif: Proxima Nova, proxima-nova, Arial, sans-serif;
+$enable-dark-mode: false;
+
+@import "./bs5/configuration.scss";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "background-color": (
+      property: background-color,
+      class: bg,
+      values: map-merge($theme-colors, $es-colors),
+    ),
+    "color": (
+      property: color,
+      class: text,
+      values: map-merge($theme-colors, $es-colors),
+    ),
+  )
+);
+
+@import "./bs5/layout-helpers-utils.scss";
+@import "./custom/button-shapes.scss";

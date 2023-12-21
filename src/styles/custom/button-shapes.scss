@@ -1,0 +1,24 @@
+@mixin quarter-circle($ydir, $xdir) {
+  border-radius: 0;
+  border-#{$ydir}-#{$xdir}-radius: 100%;
+  @if $ydir == "top" {
+    background-position-y: 75%;
+  } @else {
+    background-position-y: 25%;
+  }
+  @if $xdir == "left" {
+    background-position-x: 75%;
+  } @else {
+    background-position-x: 25%;
+  }
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@each $ydir in ("top", "bottom") {
+  @each $xdir in ("left", "right") {
+    .quarter-circle-#{$ydir}-#{$xdir} {
+      @include quarter-circle($ydir, $xdir);
+    }
+  }
+}
